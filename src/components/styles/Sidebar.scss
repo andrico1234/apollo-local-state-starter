@@ -1,9 +1,18 @@
-@import 'component';
-
 .sidebar {
-  background: $primary-color;
+  background: #336699;
   height: 100%;
   left: 0;
   position: fixed;
   width: 230px;
+}
+
+.sidebar-item {
+  border: 1px solid #86BBD8;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  list-style: none;
+  margin-bottom: 5px;
+  padding: 10px;
+  width: 100%;
 }

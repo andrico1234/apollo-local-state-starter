@@ -1,18 +1,29 @@
 import React from 'react';
-import SidebarItem from './SidebarItem';
+import { compose, graphql } from 'react-apollo';
+import { updatePageNameQuery } from '../graphql';
 
 import './styles/Sidebar.scss';
 
-const Sidebar = () => {
-    return (
-        <div className="sidebar">
-            <ul style={{padding: 0}}>
-                <SidebarItem title="Item 1" />
-                <SidebarItem title="Item 2" />
-                <SidebarItem title="Item 3" />
-            </ul>
-        </div>
-    )
+class Sidebar extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    handleClick = name => {
+        this.props.updatePageName({ variables: { name } });
+    };
+
+    render() {
+        return (
+            <div className="sidebar">
+                <ul style={{ padding: 0 }}>
+                    <li className="sidebar-item" onClick={() => this.handleClick('The Bread Code')}>The Bread Code</li>
+                    <li className="sidebar-item" onClick={() => this.handleClick('Architect Awesome')}>Architect Awesome</li>
+                    <li className="sidebar-item" onClick={() => this.handleClick('Andrico Karoulla')}>React State Starter</li>
+                </ul>
+            </div>
+        )
+    }
 };
 
-export default Sidebar;
+export default compose(graphql(updatePageNameQuery, { name: 'updatePageName' }))(Sidebar);
