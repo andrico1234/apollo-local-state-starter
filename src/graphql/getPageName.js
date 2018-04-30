@@ -9,7 +9,7 @@ export const getPageNameQuery = gql`
 `;
 
 export const getPageNameOptions = {
-    props: ({ data: { apolloClientDemo } }) => ({
-        apolloClientDemo,
+    props: ({ data: { apolloClientDemo: { currentPageName } } }) => ({
+        currentPageName,
     })
 };

@@ -5,10 +5,6 @@ import { updatePageNameQuery } from '../graphql';
 import './styles/Sidebar.scss';
 
 class Sidebar extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     handleClick = name => {
         this.props.updatePageName({ variables: { name } });
     };
@@ -17,9 +13,9 @@ class Sidebar extends React.Component {
         return (
             <div className="sidebar">
                 <ul style={{ padding: 0 }}>
-                    <li className="sidebar-item" onClick={() => this.handleClick('The Bread Code')}>The Bread Code</li>
-                    <li className="sidebar-item" onClick={() => this.handleClick('Architect Awesome')}>Architect Awesome</li>
-                    <li className="sidebar-item" onClick={() => this.handleClick('Andrico Karoulla')}>React State Starter</li>
+                    <li className="sidebar-item" onClick={() => this.handleClick('The Bread Code')}>React</li>
+                    <li className="sidebar-item" onClick={() => this.handleClick('Architect Awesome')}>Apollo Client</li>
+                    <li className="sidebar-item" onClick={() => this.handleClick('Andrico Karoulla')}>Next.js</li>
                 </ul>
             </div>
         )

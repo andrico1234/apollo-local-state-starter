@@ -9,17 +9,14 @@ export default (_, { name }, { cache }) => {
         }
     `;
 
-    const previousPageName = cache.readQuery({ query });
+    const previousState = cache.readQuery({ query });
 
     const data = {
         apolloClientDemo: {
-            ...previousPageName.apolloClientDemo,
+            ...previousState.apolloClientDemo,
             currentPageName: name
         }
     };
-
-    console.log('prev', previousPageName);
-    console.log('data', data);
 
     cache.writeQuery({
         query,
